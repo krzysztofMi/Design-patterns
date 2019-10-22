@@ -15,16 +15,20 @@ import singleton.Restaurant;
  * @author student
  */
 public class SingletonTest {
-    
+    Restaurant restaurant1 = Restaurant.getRestaurant();
+    Restaurant restaurant2 = Restaurant.getRestaurant();
+
     @Test
-    public void singletonTest(){
-        Restaurant restaurant1 = Restaurant.getRestaurant();   
-        Restaurant restaurant2 = Restaurant.getRestaurant();
-        
-        assertTrue(restaurant1.equals(restaurant2), "To nie jest singleton!");
-        restaurant1.setName("Tomek");
-        assertEquals(restaurant2.getName(), "Tomek", "Wartoœæ name nie zosta³a zmieniowa w drugiej instancji!");
-        
+    public void singletonReferenceTest(){
+        assertTrue(restaurant1.equals(restaurant2), "That is not a singleton!");
     }
-    
+
+    @Test
+    public void singletonChangeValueTest(){
+        restaurant1.setName("Tomek");
+        assertEquals(restaurant2.getName(), "Tomek", "Value name was not changed in second reference!");
+        restaurant2.setName("Wojtek");
+        assertEquals(restaurant1.getName(), "Wojtek", "Value name was not changed in second reference!");
+        assertEquals(restaurant2.getName(), restaurant1.getName(), "Name in both references are different! Should be the same.");
+    }
 }
