@@ -8,11 +8,12 @@ public class Shop {
     private Map<String, Integer> products;
 
     public Shop(){
-        products = Map.of(
-                "egg", 10,
-                "sugar", 10,
-                "flour", 5
-        );
+        products = new HashMap<String, Integer>(){
+            {
+                put("egg", 10);
+                put("sugar", 10);
+                put("flour", 5);
+            }};
     }
 
     public Map<String, Integer> buy(Map<String, Integer> products){

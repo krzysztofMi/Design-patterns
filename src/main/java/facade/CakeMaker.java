@@ -12,6 +12,14 @@ public class CakeMaker {
     CakeChecker cakeChecker;
 
 
+    public CakeMaker(){
+        shop = new Shop();
+        productList = new ProductList();
+        oven = new Oven();
+        cakeChecker = new CakeChecker();
+        cake = new SpongeCake();
+    }
+
     public CakeMaker(Shop shop){
         this.shop = shop;
         productList = new ProductList();
@@ -40,15 +48,19 @@ public class CakeMaker {
         this.oven = oven;
     }
 
-    public void makeCake(Map<String, Integer> ingredientsList){
+    public void makeCake(Map<String, Integer> ingredientsList, Integer bakeTime){
         productList.setProductList(ingredientsList);
         Map<String,Integer> ingredients = shop.buy(ingredientsList);
         cake = new SpongeCake(ingredients);
+        setBakeTime(bakeTime);
+        System.out.println(oven.getBakeTime());
         oven.setCake((SpongeCake)cake.prepareCake());
-        Cake cake = oven.bakeCake(5);
+        cake =(SpongeCake) oven.bakeCake();
         cakeChecker.checkCakeStatus(cake);
     }
 
+    public void setBakeTime(Integer time){oven.setBakeTime(time);}
+    public Integer getCakeStatus(){ return cake.getCakeStatus();}
     public void buyIngredients(){
         productList.setProductList(shop.buy(productList.getProductList()));
     }

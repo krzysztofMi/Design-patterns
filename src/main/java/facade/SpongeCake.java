@@ -31,8 +31,8 @@ public class SpongeCake implements Cake {
 
     private void addEggs(){
         cakeStatus++;
-        Integer eggNumbers = ingrediens.get("eggs");
-        ingrediens.put("eggs", eggNumbers-3);
+        Integer eggNumbers = ingrediens.get("egg");
+        ingrediens.put("egg", eggNumbers-3);
     }
 
     private void addFlour(){
