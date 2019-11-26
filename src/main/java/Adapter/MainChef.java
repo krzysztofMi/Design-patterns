@@ -12,7 +12,7 @@ package Adapter;
 public class MainChef implements Chef {
 
     @Override
-    public void makeFood() {
-        System.out.println("Make tasty food.");
+    public String makeFood() {
+        return "Make tasty food.";
     }
 }

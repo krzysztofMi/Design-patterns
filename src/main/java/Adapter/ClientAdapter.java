@@ -1,25 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Adapter;
 
-/**
- *
- * @author dstudent
- */
-public class ClientAdapter implements Client {
+public class ClientAdapter implements Chef {
 
-    Chef chef;
-    
-    ClientAdapter(Chef chef){
-        this.chef = chef;
+
+
+
+    private Client client;
+
+    public ClientAdapter(){
+        client = new HungryClient();
     }
-    
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
     @Override
-    public void getFood() {
-        chef.makeOwnFood();
+    public String makeFood() {
+        return client.orderFood() + " Make food.";
     }
-    
+
 }
