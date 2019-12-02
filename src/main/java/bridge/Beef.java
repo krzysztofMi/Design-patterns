@@ -9,20 +9,27 @@ package bridge;
  *
  * @author student
  */
-public class CowMeat implements Meat{
+public class Beef implements Meat{
     
     private boolean isCooked = false;
-    
+
+    @Override
     public String eat() {
         if(isCooked){
-            return "You eat cooked cow meat.";
+            return "You eat cooked beef.";
         }
-        return "You eat raw cow meat.";
+        return "You eat raw beef.";
     }
 
+    @Override
     public String cook() {
         isCooked = true;
-        return "You cook cow meat.";
+        return "You cook beef.";
     }
-   
+
+    @Override
+    public boolean isCooked() {
+        return isCooked;
+    }
+
 }

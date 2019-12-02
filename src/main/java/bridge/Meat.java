@@ -12,4 +12,5 @@ package bridge;
 public interface Meat {
     String eat();
     String cook();
+    boolean isCooked();
 }

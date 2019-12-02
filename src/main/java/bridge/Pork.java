@@ -9,7 +9,7 @@ package bridge;
  *
  * @author student
  */
-public class PigMeat implements Meat{
+public class Pork implements Meat{
     
     private boolean isCooked;
 
@@ -20,17 +20,24 @@ public class PigMeat implements Meat{
     public void setIsCooked(boolean isCooked) {
         this.isCooked = isCooked;
     }
-    
+
+    @Override
     public String eat() {
         if(isCooked){
-            return "You eat cooked pig meat.";
+            return "You eat cooked pork.";
         }
-        return "You eat raw pig meat.";
+        return "You eat raw pork.";
     }
 
+    @Override
     public String cook() {
         isCooked = true;
-        return "You cook pig meat.";
+        return "You cook pork.";
+    }
+
+    @Override
+    public boolean isCooked(){
+        return isCooked;
     }
     
 }
