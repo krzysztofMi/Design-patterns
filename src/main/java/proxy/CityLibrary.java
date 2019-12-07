@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package proxy;
 
 import java.util.ArrayList;
@@ -10,10 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author student
- */
 public class CityLibrary implements Library{
     
     List<Book> books;
@@ -28,15 +20,22 @@ public class CityLibrary implements Library{
         this.books = books;
         borrowedBooks = new HashMap<Book, String>();
     }
+
+    public CityLibrary(List<Book> books, Map<Book, String> borrowedBooks){
+        this.books = books;
+        this.borrowedBooks = borrowedBooks;
+    }
     
     public List<Book> listBooks() {
         return this.books;
     }
 
+    @Override
     public void getBookInfo(Integer id) {
         System.out.println(books.get(id).toString());
     }
 
+    @Override
     public Book borrowBook(Integer id, String name) {
         Book book = books.get(id);
         books.remove(id);
