@@ -16,17 +16,42 @@ import javax.swing.JFrame;
  * @author student
  */
 public class Shapes extends JFrame{
-    private ArrayList<Shape> shapes = new ArrayList<Shape>();
+    private ArrayList<ShapeToDraw> shapes = new ArrayList();
     
-    public void addShape(String name, Color color, int x, int y, int dim){
-        Shape shape = ShapeFactory.getTreeType(name, color, dim, x, y);
+    public void addShape(ShapeType shapeType, Color color, int x, int y, int dim){
+        Shape shape = ShapeFactory.getShape(shapeType, color);
+        shape.setX(x);
+        shape.setY(y);
+        switch (shapeType){
+            case CIRCLE:
+                addCircle((Circle)shape, dim);
+                break;
+            case SQUARE:
+                addSquare((Square)shape, dim);
+                break;
+        }
+    }
+
+    private void addCircle(Circle circle, int radious){
+        circle.setRadious(radious);
+        ShapeToDraw shape = new ShapeToDraw(circle, circle.getX(), circle.getY(), circle.getRadious());
+        shapes.add(shape);
+    }
+
+    private void addSquare(Square square, int width){
+        square.setWidth(width);
+        ShapeToDraw shape = new ShapeToDraw(square, square.getX(), square.getY(), square.width);
         shapes.add(shape);
     }
     
     @Override
     public void paint(Graphics graphic){
-        for (Shape shape : shapes) {
+        for (ShapeToDraw shape : shapes) {
             shape.draw(graphic);
         }
+    }
+
+    public int getShapesSize(){
+        return shapes.size();
     }
 }

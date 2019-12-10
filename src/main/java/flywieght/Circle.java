@@ -11,13 +11,26 @@ import java.awt.Graphics;
 
 public class Circle extends Shape {
 
-    public Circle(Color color, int dim, int x, int y) {
-        super(color, dim, x, y);
+    private int radious;
+
+    public int getRadious() {
+        return radious;
+    }
+
+    public void setRadious(int radious) {
+        this.radious = radious;
+    }
+
+    public Circle(Color color) {
+        super(color);
     }
     
-    public void draw(Graphics g) {
-        g.drawOval(20, 30, 5, 0);
+    public void draw(Graphics g, int x, int y, int radious) {
+        g.setColor(color);
+        g.fillOval(x, y, radious, radious);
+        g.setColor(Color.BLACK);
+        g.drawOval(x, y, radious, radious);
     }
-    
+
     
 }

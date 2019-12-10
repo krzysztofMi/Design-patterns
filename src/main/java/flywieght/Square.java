@@ -13,16 +13,26 @@ import java.awt.Graphics;
  * @author student
  */
 public class Square extends Shape {
-    
-    public Square(Color color, int dim, int x, int y) {
-        super(color, dim, x, y);
+
+    int width;
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public Square(Color color) {
+        super(color);
     }
     
     @Override
-    public void draw(Graphics g){
+    public void draw(Graphics g, int x, int y, int width){
         g.setColor(color);
-        g.fillRect(x, y, dim, dim);
+        g.fillRect(x, y, width, width);
         g.setColor(Color.BLACK);
-        g.drawRect(x, y, dim, dim);
+        g.drawRect(x, y, width, width);
     }
 }
