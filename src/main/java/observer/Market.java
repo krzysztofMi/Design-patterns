@@ -4,7 +4,7 @@ package observer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MarketPrices implements Subject {
+public class Market implements Subject {
 
     List<Observer> observerList = new ArrayList<>();
 

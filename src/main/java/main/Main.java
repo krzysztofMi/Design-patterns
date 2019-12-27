@@ -8,9 +8,6 @@ import builder.Meal;
 
 public class Main {
     public static void main(String[] args){
-          Soup soup = new PotatoSoup();
-        Cake cake = new StrawberryCake();
-        Meal meal = new Meal.MealBuilder(soup, cake).create();
-        System.out.println("meal");
+
     }
 }
